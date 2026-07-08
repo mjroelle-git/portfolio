@@ -1,0 +1,402 @@
+/* natural box model */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* UTILITIES */
+
+/* hides an element on screen, but not from screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* no break */
+.nobr {
+  white-space: nowrap;
+}
+
+:root {
+  --lionred: #7a1f1f;   /* used for banner/footer bg */
+  --loingold: #f0d78c;     /* card bg, gold-ish */
+  --dragonblack: #1a1a1a;
+  --dragonred: #3a0e0e;
+
+}
+
+/* START STYLES HERE */
+
+/* Typography and links */
+
+.jacquard-24-regular {
+  font-family: "Jacquard 24", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.jacquard-12-regular {
+  font-family: "Jacquard 12", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.metamorphous-regular {
+  font-family: "Metamorphous", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.faculty-glyphic-regular {
+  font-family: "Faculty Glyphic", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+h1 {
+  font-family: "Jacquard 24", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  color: black;
+}
+
+h2,h3,h4,h5,h6 {
+  font-family: "Metamorphous", serif;
+  font-weight: 400;
+  font-style: normal;
+  color: black;
+}
+
+p,figcaption,li {
+  font-family: "Metamorphous", serif;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+p {
+  font-size: 14px;
+}
+
+.title {
+  text-align: center;
+  background-color: var(--tealblue);
+  padding: 1.0rem 1.5rem 1.0rem;
+  /* margin: 1.0rem; */
+}
+
+
+.header {
+  font-size: 36px;
+  color: var(--ghost);
+}
+
+.pagename {
+  font-size: 20px;
+  color: gainsboro;
+}
+
+
+a:link {
+  color: var(--tealblue);
+}
+
+a:visited {
+  color: var(--tealblue);
+}
+
+a:hover {
+  color: var(--ghost);
+}
+
+/* Image */
+
+.headshot {
+  border-radius: 50%;
+  max-width: 200px;
+  max-height: 200px;
+}
+
+img {
+  display: block;
+}
+
+/* Nav */
+
+.material-symbols-outlined {
+  font-variation-settings:
+      'FILL' 0,
+      'wght' 500,
+      'GRAD' 0,
+      'opsz' 48
+}
+
+.openbtn {
+  position: absolute;
+  left: 20px;
+  top: 10px;
+  color: black;
+  font-family: 'PT Sans', sans-serif;
+}
+
+.openbtn:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.menu-button {
+  font-size: 36px !important;
+  position: relative;
+  top: 6px;
+  left: -4px;
+}
+
+.menu-text {
+  font-size: 12px;
+  display: block;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+/* The side navigation menu */
+.all-over-bkg {
+  display: none;
+}
+
+.is-visible {
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 9999;
+  display: block;
+}
+
+#mySidenav {
+  z-index: 10000;
+}
+
+.sidenav {
+  height: 100%;
+  /* 100% Full-height */
+  width: 0;
+  /* 0 width - change this with JavaScript */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Stay on top */
+  top: 0;
+  /* Stay at the top */
+  left: 0;
+  overflow-x: hidden;
+  /* Disable horizontal scroll */
+  padding-top: 60px;
+  /* Place content 60px from the top */
+  transition: 0.5s;
+  /* 0.5 second transition effect to slide in the sidenav */
+  background-color: white;
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: grey;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* Information */
+
+section {
+  padding: 1.0rem 1.5rem 1.0rem;
+  margin: 1.0em auto;
+}
+
+article {
+  background: var(--barley);
+  padding: 1.0rem 1.5rem 1.0rem;
+  margin: 1.0rem auto;
+}
+
+body {
+  background: var(--barley);
+}
+
+footer {
+  background-color: var(--tealblue);
+  color: var(--ghost);
+  padding: 1.0rem 1.5rem 1.0rem;
+  margin: 0 auto;
+  border: 5px solid var(--ghost);
+}
+
+footer h4 {
+  text-align: center;
+  font-size: 11px;
+}
+
+footer p {
+  font-size: 8px;
+}
+
+/* * * * * * * *
+Index Page
+* * * * * * * */
+
+.left-float-img{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  background-color: var(--lightbrown);
+  border: 5px solid var(--darkbrown);
+}
+
+.right-float-img{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  background-color: var(--darkbrown);
+  border: 5px solid var(--lightbrown);
+}
+
+.float-img {
+  max-width: 70%;
+  height: auto;
+}
+
+/* Bounce In */
+.hvr-bounce-in {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+.hvr-bounce-in:hover, .hvr-bounce-in:focus, .hvr-bounce-in:active {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+  -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+}
+
+
+/* MEDIA QUERIES FROM SMALLEST TO LARGEST = MOBILE FIRST */
+/* Extra small devices (portrait phones, less than 576px)
+No media query for `xs` since this is the default */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { 
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+}
+
+
+/* MEDIA QUERIES FROM LARGEST TO SMALLEST */
+/* Extra small devices (portrait phones, less than 576px) */
+/* @media (max-width: 575.98px) {
+
+} */
+
+/* Small devices (landscape phones, less than 768px) */
+/* @media (max-width: 767.98px) {
+
+} */
+
+/* Medium devices (tablets, less than 992px) */
+/* @media (max-width: 991.98px) {
+
+} */
+
+/* Large devices (desktops, less than 1200px) */
+/* @media (max-width: 1199.98px) {
+
+} */
+
+/* Extra large devices (large desktops)
+No media query since the extra-large breakpoint has no upper bound on its width */
+
+
+
+/* House Styles */
+
+/* defaults in styles.css stay as-is */
+
+/* then add near the bottom: */
+body.house-lannister {
+  --lionred: #7a1f1f;   /* used for banner/footer bg */
+  --loingold: #f0d78c;     /* card bg, gold-ish */
+}
+body.house-targaryen {
+  --dragonblack: #1a1a1a;
+  --dragonred: #3a0e0e;
+}
+body.house-stark {
+  --wolfgrey: #1a1a1a;
+  --wolfwhite: #d9d9d9;
+}
