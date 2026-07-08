@@ -26,11 +26,28 @@ html {
 }
 
 :root {
-  --lionred: #7a1f1f;   /* used for banner/footer bg */
-  --loingold: #f0d78c;     /* card bg, gold-ish */
-  --dragonblack: #1a1a1a;
-  --dragonred: #3a0e0e;
+  /* --- Core GoT palette (defaults = neutral "Iron Throne") --- */
+  --parchment:  #e6d7b0;   /* aged paper */
+  --parchment-dark: #d8c599;
+  --ink:        #1c1712;   /* near-black brown */
+  --ironsteel:  #26323a;   /* dark banner / footer steel */
+  --ironsteel-2:#33434d;
+  --ghost:      #f5f0e1;   /* off-white text */
+  --gold:       #c9a227;   /* trim / accents */
 
+  /* --- Mapped names the existing CSS already references --- */
+  --barley:     var(--parchment);   /* body + card bg */
+  --tealblue:   var(--ironsteel);   /* banner / footer / links */
+  --lightbrown: #b08d57;
+  --darkbrown:  #3d2b1a;
+
+  /* --- House sigil colors --- */
+  --lionred:    #7a1f1f;
+  --liongold:   #f0d78c;
+  --dragonblack:#1a1a1a;
+  --dragonred:  #6a0e0e;
+  --wolfgrey:   #55606a;
+  --wolfwhite:  #d9d9d9;
 }
 
 /* START STYLES HERE */
@@ -81,7 +98,7 @@ p,figcaption,li {
   font-family: "Metamorphous", serif;
   font-weight: 400;
   font-style: normal;
-  color: white;
+  color: var(--ink);   /* dark text for light parchment cards */
 }
 
 h1 {
@@ -282,10 +299,12 @@ footer {
 footer h4 {
   text-align: center;
   font-size: 11px;
+  color: var(--ghost);
 }
 
 footer p {
   font-size: 8px;
+  color: var(--ghost);
 }
 
 /* * * * * * * *
@@ -383,20 +402,195 @@ No media query since the extra-large breakpoint has no upper bound on its width 
 
 
 
-/* House Styles */
+/* * * * * * * *
+House Theming
+Each page overrides the shared palette vars so banners, cards,
+links and footers all re-tint to that house. Add the class to <body>.
+* * * * * * * */
 
-/* defaults in styles.css stay as-is */
-
-/* then add near the bottom: */
-body.house-lannister {
-  --lionred: #7a1f1f;   /* used for banner/footer bg */
-  --loingold: #f0d78c;     /* card bg, gold-ish */
-}
-body.house-targaryen {
-  --dragonblack: #1a1a1a;
-  --dragonred: #3a0e0e;
-}
 body.house-stark {
-  --wolfgrey: #1a1a1a;
-  --wolfwhite: #d9d9d9;
+  --tealblue: #3c4650;      /* winter steel banner */
+  --barley:   #d6ddE2;      /* pale snow parchment */
+  --gold:     #9aa7b0;
+  --darkbrown:#2b333b;
+  --lightbrown:#6d7a84;
+}
+
+body.house-lannister {
+  --tealblue: var(--lionred);   /* crimson banner */
+  --barley:   #f2e4bb;          /* gold parchment */
+  --gold:     #c9a227;
+  --darkbrown:#5c1717;
+  --lightbrown:#caa64a;
+}
+
+body.house-targaryen {
+  --tealblue: var(--dragonblack);   /* black banner */
+  --barley:   #e9d6c4;              /* ember parchment */
+  --gold:     #b3122a;              /* dragon red trim */
+  --darkbrown:#3a0e0e;
+  --lightbrown:#8a1f2b;
+}
+
+body.house-baratheon {
+  --tealblue: #1f2d5c;      /* stormland gold-on-black... blue banner */
+  --barley:   #efe0a8;
+  --gold:     #e0b73a;
+  --darkbrown:#141d3d;
+  --lightbrown:#c79a2e;
+}
+
+body.house-nightswatch {
+  --tealblue: #14181c;      /* the black of the Wall */
+  --barley:   #cfd6da;
+  --gold:     #5c6a72;
+  --darkbrown:#0d0f12;
+  --lightbrown:#3a444c;
+}
+
+body.house-tyrell {
+  --tealblue: #2c6a3f;      /* Highgarden green banner */
+  --barley:   #eef0d8;      /* pale rose-gold parchment */
+  --gold:     #d4a92a;      /* golden rose */
+  --darkbrown:#1c4327;
+  --lightbrown:#7ba05b;
+}
+
+/* * * * * * * *
+Pixel-Art / Sigil flourishes
+* * * * * * * */
+
+.pixel {
+  font-family: "Press Start 2P", "Jacquard 12", monospace;
+  line-height: 1.6;
+  letter-spacing: 1px;
+}
+
+/* Crisp edges for any pixel-art imagery */
+img.pixel-art,
+.pixel-art img {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* Chunky "pixel" border + hard drop shadow on cards */
+article {
+  border: 4px solid var(--darkbrown);
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.35);
+  position: relative;
+}
+
+/* Castle-wall crenellations along the top of the title banner */
+.title {
+  position: relative;
+  border-bottom: 4px solid var(--gold);
+}
+.title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -14px;
+  height: 10px;
+  width: 100%;
+  background:
+    repeating-linear-gradient(
+      to right,
+      var(--tealblue) 0,
+      var(--tealblue) 20px,
+      transparent 20px,
+      transparent 40px
+    );
+}
+
+/* Sigil chip shown next to a house page heading */
+.sigil {
+  display: inline-block;
+  font-family: "Press Start 2P", monospace;
+  font-size: 11px;
+  color: var(--ghost);
+  background: var(--tealblue);
+  border: 3px solid var(--gold);
+  padding: 6px 10px;
+  margin-bottom: 0.75rem;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.35);
+}
+
+/* House words / tagline under a page heading */
+.words {
+  font-family: "Metamorphous", serif;
+  font-style: italic;
+  color: var(--darkbrown);
+  margin: 0.25rem 0 1.5rem;
+  font-size: 15px;
+}
+
+/* Section heading centered with pixel underline */
+h2 {
+  text-align: center;
+}
+
+/* Skill meter bars (Skills page) */
+.skill-row {
+  margin: 0.75rem 0;
+}
+.skill-row .label {
+  display: flex;
+  justify-content: space-between;
+  color: var(--ink);
+  font-family: "Metamorphous", serif;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+.meter {
+  height: 18px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 3px solid var(--darkbrown);
+  padding: 2px;
+}
+.meter > span {
+  display: block;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to right,
+    var(--gold) 0,
+    var(--gold) 8px,
+    var(--lightbrown) 8px,
+    var(--lightbrown) 12px
+  );
+}
+
+/* Experience timeline entries */
+.timeline article {
+  border-left: 10px solid var(--gold);
+}
+
+/* Contact list */
+.contact-list {
+  list-style: none;
+  padding: 0;
+}
+.contact-list li {
+  margin: 0.5rem 0;
+  font-size: 16px;
+}
+.contact-list a {
+  color: var(--gold);
+  text-decoration: none;
+}
+.contact-list a:hover {
+  color: var(--ghost);
+  text-decoration: underline;
+}
+
+/* Close button for the slide-out nav */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 40px;
+  color: var(--ink);
+  cursor: pointer;
+}
+.sidenav .closebtn:hover {
+  color: grey;
 }

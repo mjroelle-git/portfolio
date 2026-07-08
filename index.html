@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Home - Max Roelle Portfolio</title>
     <!-- resets browser defaults -->
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <!-- custom styles -->
@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic&family=Jacquard+12&family=Jacquard+24&family=Metamorphous&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic&family=Jacquard+12&family=Jacquard+24&family=Metamorphous&family=Press+Start+2P&display=swap"
         rel="stylesheet">
 </head>
 
@@ -29,6 +29,7 @@
     <!-- Nav -->
 
     <nav id="mySidenav" class="sidenav">
+        <span class="closebtn">&times;</span>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Me</a></li>
@@ -40,22 +41,39 @@
     </nav>
 
     <div class="openbtn">
-        <!-- Need to replace with a three line menu button icon -->
-        <span class="material-symbols-outlined menu-button">MENU</span>
-        <span class="menu-text">Click Here</span>
+        <span class="menu-button">&#9776;</span>
+        <span class="menu-text">Menu</span>
     </div>
 
     <div class="all-over-bkg"></div>
 
     <!-- Main content -->
 
-    <article>
-        <h1>Welcome to Max Roelle's Portfolio</h1>
+    <section aria-label="Welcome">
+        <p class="sigil">&#9812; THE IRON THRONE</p>
+        <p class="words">"When you play the game of code, you win or you debug."</p>
 
+        <article>
+            <h1>Welcome to Max Roelle's Portfolio</h1>
+            <p>Seven kingdoms, one CS student. This is a Game of Thrones, pixel-art inspired portfolio
+                built entirely by hand. Open the menu (top-left) to travel between the realms &mdash; each
+                page flies the banner of a different Great House.</p>
+        </article>
 
+        <article>
+            <h3>Explore the Realm</h3>
+            <p>
+                &#10052; <a href="about.html">About Me</a> &mdash; House Stark &nbsp;&middot;&nbsp;
+                &#129418; <a href="projects.html">Projects</a> &mdash; House Lannister &nbsp;&middot;&nbsp;
+                &#128009; <a href="skills.html">Skills</a> &mdash; House Targaryen &nbsp;&middot;&nbsp;
+                &#9752; <a href="experience.html">Experience</a> &mdash; House Baratheon &nbsp;&middot;&nbsp;
+                &#127801; <a href="contact.html">Contact</a> &mdash; House Tyrell
+            </p>
+        </article>
+    </section>
 
-        <footer>
-            <h4>WEBSITE DISCLAIMER</h4>
+    <footer>
+        <h4>WEBSITE DISCLAIMER</h4>
             <p>The information provided by Max Roelle ("we", "us", or "our") on
                 maxroelle.com
                 (the "Site") is for general information purposes only. All information on the Site is provided in good
@@ -71,8 +89,6 @@
                 SITE IS SOLELY AT YOUR OWN RISK.
             </p>
         </footer>
-
-    </article>
 
     <!-- JavaScript -->
 
